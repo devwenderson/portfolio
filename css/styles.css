@@ -1,0 +1,198 @@
+:root {
+    --black-blue-900: #0e0c13;
+    --white-100: #e0e0e0;
+    --green-100: #c3eb38;
+}
+
+@font-face {
+    font-family: "Ethnocentric";
+    src: url("fonts/ethnocentric.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/poppins-regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/poppins-medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/poppins-bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 1200px; /* Define a largura máxima */
+    margin: 0 auto; /* Centraliza o contêiner na horizontal */
+    padding: 0 20px; /* Adiciona um espaço interno para evitar que o conteúdo toque nas bordas */
+}
+
+/* NAVBAR */
+.header {
+    background-color: var(--black-blue-900);
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    color: #fff;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.logo a > img {
+    padding-top: 10px;
+    width: 85px;
+}
+
+/* Estilo dos links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links li a:hover {
+    color: #f0a500;
+}
+
+/* Estilo do menu hamburger para mobile */
+.hamburger {
+    display: none; /* Oculta no desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px; /* Espaço entre as linhas */
+    padding: 5px; /* Margens para um toque de espaçamento */
+}
+
+.hamburger span {
+    width: 30px; /* Largura da linha */
+    height: 3px; /* Altura da linha */
+    background-color: #fff; /* Cor das linhas */
+    border-radius: 2px; /* Bordas arredondadas para um look minimalista */
+}
+
+/* Tornar a navbar responsiva */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Oculta os links inicialmente */
+        position: absolute;
+        right: 0;
+        top: 90px;
+        background-color: var(--black-blue-900);
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .nav-links li {
+        padding: 10px;
+        border-top: 1px solid #444;
+    }
+
+    .nav-links li a {
+        font-size: 20px;
+    }
+
+    .hamburger {
+        display: flex; /* Mostra o hamburger no mobile */
+        margin-left: auto; /* Para garantir que fique alinhado à direita */
+    }
+}
+
+/* Mostrar menu quando clicar no hamburger */
+.nav-active {
+    display: flex; /* Exibe os links quando a classe nav-active está presente */
+}
+
+/* SECTION */
+.section {
+    background-color: var(--black-blue-900);
+    height: 84vh;
+    width: 100%;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section .hero .button {
+    padding: 10px 20px;
+    background-color: var(--green-100);
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: var(--black-blue-900);
+    border-radius: 10px;
+}
+
+.section .hero h4 {
+    font-family: "Poppins";
+    font-weight: 700;
+    width: 60%;
+    text-align: center;
+    color: var(--white-100);
+}
+
+.section .hero h1 {
+    font-family: "Ethnocentric";
+    width: 50%;
+    text-align: center;
+    color: var(--green-100);
+}
+
+.section .hero p {
+    font-family: "Poppins";
+    font-weight: 500;
+    width: 60%;
+    text-align: center;
+    color: var(--white-100);
+}
