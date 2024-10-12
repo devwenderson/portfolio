@@ -55,21 +55,37 @@
     padding: 0 20px; /* Adiciona um espaço interno para evitar que o conteúdo toque nas bordas */
 }
 
+/* BARRA DE ROLAGEM */
+/* Barra de rolagem inteira */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem vertical */
+    height: 12px; /* Altura da barra de rolagem horizontal */
+    background-color: var(--black-blue-900); /* Cor do fundo */
+}
+
+/* Cor do polegar (a parte que desliza) */
+::-webkit-scrollbar-thumb {
+    background: var(--green-100); /* Cor do polegar */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Cor do polegar ao passar o mouse por cima */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor do polegar ao passar o mouse */
+}
+
 /* NAVBAR */
 .header {
     background-color: var(--black-blue-900);
     position: relative;
+    z-index: 1000;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px;
     color: #fff;
-
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
 }
 
 .logo a > img {
@@ -85,13 +101,15 @@
 }
 
 .nav-links li a {
-    color: #fff;
+    color: var(--white-100);
     text-decoration: none;
     font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
 }
 
 .nav-links li a:hover {
-    color: #f0a500;
+    color: var(--green-100);
 }
 
 /* Estilo do menu hamburger para mobile */
@@ -146,15 +164,43 @@
 
 /* SECTION */
 .section {
-    background-color: var(--black-blue-900);
-    height: 84vh;
+    height: 100vh;
     width: 100%;
-}
-
-.section {
+    
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.section-background-blue {
+    background-color: var(--black-blue-900);
+}
+
+.section-background-white {
+    background-color: var(--white-100);
+}
+
+.section::after {
+    content: "";
+    background-image: url("../assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+    opacity: 0.05; /* Reduz a opacidade apenas da imagem */
+    background-color: var(--black-blue-900);
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 115vh;
+    z-index: 0; /* Para ficar atrás do conteúdo */
+}
+
+.section > * {
+    position: relative;
+    z-index: 1;
 }
 
 .section .hero {
@@ -162,16 +208,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .section .hero .button {
-    padding: 10px 20px;
+    padding: 15px 50px;
     background-color: var(--green-100);
     text-decoration: none;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
+    font-size: 20px;
     color: var(--black-blue-900);
     border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+
+    /* Efeito de brilho externo */
+    box-shadow: 0 0 30px rgba(195, 235, 56, 0.7), /* Sombra verde */
+                0 0 40px rgba(195, 235, 56, 0.5); /* Sombra mais difusa */
+    transition: box-shadow 0.3s ease; /* Transição suave */
+}
+
+.section .hero .button:hover {
+    /* opacity: 0.7; */
+    box-shadow: 0 0 30px rgba(195, 235, 56, 0.9), /* Sombra verde ao passar o mouse */
+                0 0 40px rgba(195, 235, 56, 0.6); /* Sombra mais difusa ao passar o mouse */
 }
 
 .section .hero h4 {
@@ -179,20 +240,22 @@
     font-weight: 700;
     width: 60%;
     text-align: center;
+    font-size: 25px;
     color: var(--white-100);
 }
 
 .section .hero h1 {
     font-family: "Ethnocentric";
-    width: 50%;
     text-align: center;
+    font-size: 65px;
     color: var(--green-100);
 }
 
 .section .hero p {
     font-family: "Poppins";
     font-weight: 500;
-    width: 60%;
+    width: 50%;
     text-align: center;
+    font-size: 18px;
     color: var(--white-100);
 }
